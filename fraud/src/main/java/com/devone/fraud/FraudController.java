@@ -21,6 +21,10 @@ public class FraudController {
 
     boolean isFraudulentCustomer = fraudCheckService.isFraudulentCustomer(customerId);
 
+    if (isFraudulentCustomer) {
+      log.warn("customer {} is fraudulent", customerId);
+    }
+
     return new FraudCheckResponse(isFraudulentCustomer);
   }
 }
