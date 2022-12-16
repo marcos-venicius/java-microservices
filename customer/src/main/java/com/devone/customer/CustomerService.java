@@ -2,8 +2,14 @@ package com.devone.customer;
 
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+@AllArgsConstructor
+public class CustomerService {
+
+  private final CustomerRepository customerRepository;
+
   public void registerCustomer(CustomerRegistrationRequest request) {
     Customer customer = Customer.builder()
         .firstName(request.firstName())
